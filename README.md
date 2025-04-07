@@ -40,4 +40,23 @@ PRIMARY KEY (`id`)
 ### data
 INSERT  INTO `customer` (`email`, `pwd`, `role`) VALUES ('happy@example.com', '{noop}EazyBytes@12345', 'read');
 INSERT  INTO `customer` (`email`, `pwd`, `role`) VALUES ('admin@example.com', '{bcrypt}$2a$12$88.f6upbBvy0okEa7OfHFuorV29qeK.sVbB9VQ6J6dWM1bW6Qef8m', 'admin');
+EazyBytes@54321
+
+
+## Using users from the custom table.
+Rather then implementing the UserDetailsManager with many methods to implement, 
+we just implement the UserDetailsService interface with only one method: loadUserByUsername(), 
+which is the one we just need.
+
+And we can see following formated select in the log:
+Hibernate:
+    select
+        c1_0.id,
+        c1_0.email,
+        c1_0.pwd,
+        c1_0.role
+    from
+        customer c1_0
+    where
+        c1_0.email=?
 
