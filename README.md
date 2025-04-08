@@ -74,3 +74,5 @@ POST
 
 This happens because Spring Security framework by default STOPS requests modifying/deleting/inserting data 
 due to the CSRF protection.
+
+For now, we have solved this by disabling the CSRF protection in the SecurityConfig.
