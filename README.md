@@ -60,3 +60,17 @@ Hibernate:
     where
         c1_0.email=?
 
+
+## Register user using the REST API
+After adding the "/register" endpoint to the public APIs in the SecurityConfig, 
+we get HTTP 403 after request
+
+POST
+{
+    "email": "john@example.com",
+    "pwd": "EazyBytes@12345",
+    "role": "user"
+}
+
+This happens because Spring Security framework by default STOPS requests modifying/deleting/inserting data 
+due to the CSRF protection.
